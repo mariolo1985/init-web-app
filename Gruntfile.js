@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
     //grunt.loadTasks('./grunt/tasks');
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         browserify: {
@@ -10,12 +11,12 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: ['src/js/master.js'],
-                dest: 'build/js/master.js'
+                dest: 'build/js/master.min.js'
             }
         },
         uglify: {
             build: {
-                src: 'build/js/master.js',
+                src: 'build/js/master.min.js',
                 dest: 'dist/js/master.min.js'
             }
         },
@@ -36,7 +37,15 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            main: {
+            dev: {
+                files: [
+                    { expand: true, cwd: 'src/', src: '*.html', dest: 'dist/' },
+                    { expand: true, cwd: 'src/', src: 'data/*', dest: 'dist/' },
+                    { expand: true, cwd: 'src/', src: 'images/*', dest: 'dist/' },
+                    { expand: true, cwd: 'build/', src: 'js/master.min.js', dest: 'dist/' }
+                ]
+            },
+            prod: {
                 files: [
                     { expand: true, cwd: 'src/', src: '*.html', dest: 'dist/' },
                     { expand: true, cwd: 'src/', src: 'data/*', dest: 'dist/' },
@@ -53,15 +62,14 @@ module.exports = function (grunt) {
 
     grunt.registerTask('dev', [
         'browserify',
-        'uglify',
-        'copy',
+        'copy:dev',
         'less:dev'
     ]);
 
     grunt.registerTask('prod', [
         'browserify',
         'uglify',
-        'copy',
+        'copy:prod',
         'less:prod'
     ]);
 };
