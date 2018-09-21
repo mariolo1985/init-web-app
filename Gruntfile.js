@@ -52,6 +52,24 @@ module.exports = function (grunt) {
                     { expand: true, cwd: 'src/', src: 'images/*', dest: 'dist/' }
                 ]
             }
+        },
+        watch: {
+            data: {
+                files: ['src/data/*.json'],
+                tasks: ['copy:dev']
+            },
+            less: {
+                files: ['src/less/*.less'],
+                tasks: ['less:dev']
+            },
+            js: {
+                files: ['src/js/*.js', 'src/components/**'],
+                tasks: ['browserify', 'copy:dev']
+            },
+            html: {
+                files: ['src/*.html'],
+                tasks: ['copy:dev']
+            }
         }
     });
 
@@ -59,11 +77,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('dev', [
         'browserify',
         'copy:dev',
-        'less:dev'
+        'less:dev',
+        'watch'
     ]);
 
     grunt.registerTask('prod', [
