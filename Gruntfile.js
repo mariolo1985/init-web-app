@@ -1,6 +1,4 @@
 module.exports = function (grunt) {
-    //grunt.loadTasks('./grunt/tasks');
-
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         browserify: {
