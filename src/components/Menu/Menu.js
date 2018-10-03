@@ -8,7 +8,7 @@ class Menu extends Component {
         this.state = {
             data: [],
             isLoaded: false
-        }
+        };
     }
 
     componentDidMount = () => {
@@ -32,9 +32,10 @@ class Menu extends Component {
         return (
             <div className='menu-wrapper'>
                 <ul className='menu'>
+                    <li>menu item</li>
                 </ul>
             </div>
-        )
+        );
     }
 }
 
