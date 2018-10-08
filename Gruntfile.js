@@ -5,7 +5,7 @@ module.exports = function (grunt) {
             options: {
                 transform: [
                     ["babelify"]
-                ],
+                ]
             },
             dist: {
                 src: ['src/js/master.js'],
@@ -34,6 +34,13 @@ module.exports = function (grunt) {
                 }
             }
         },
+        clean: {
+            data: ['dist/data'],
+            dev: ['dist'],
+            html: ['dist/*.html'],
+            js: ['dist/js'],
+            prod: ['dist']
+        },
         copy: {
             dev: {
                 files: [
@@ -54,7 +61,7 @@ module.exports = function (grunt) {
         watch: {
             data: {
                 files: ['src/data/*.json'],
-                tasks: ['copy:dev']
+                tasks: ['clean:data', 'copy:dev']
             },
             less: {
                 files: ['src/less/*.less'],
@@ -62,11 +69,11 @@ module.exports = function (grunt) {
             },
             js: {
                 files: ['src/js/*.js', 'src/components/**'],
-                tasks: ['browserify', 'copy:dev']
+                tasks: ['browserify', 'clean:js', 'copy:dev']
             },
             html: {
                 files: ['src/*.html'],
-                tasks: ['copy:dev']
+                tasks: ['clean:html', 'copy:dev']
             }
         }
     });
@@ -74,11 +81,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('dev', [
         'browserify',
+        'clean:dev',
         'copy:dev',
         'less:dev',
         'watch'
@@ -86,6 +95,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('prod', [
         'browserify',
+        'clean:prod',
         'uglify',
         'copy:prod',
         'less:prod'
