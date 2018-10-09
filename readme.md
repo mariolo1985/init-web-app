@@ -6,6 +6,15 @@ This is where I start my Reactjs web apps.
 
 Feel free to use it.
 
+# Table Of Content
+
+- [Pre-req](#pre-req)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [Future features](#future-features)
+- [Feature request](#feature-request)
+- [Bug report](#bug-report)
+
 ## Pre-req
 
 - Node 8+
@@ -13,13 +22,15 @@ Feel free to use it.
 
 ## Installation 
 
-1. **Fork** this repo and __clone__ it
+1. **Fork** this repo and __clone__ your fork
 
 2. Run the following commands
 
-- `yarn`: to install packages
-- `yarn build:dev`: to run a dev build with a watcher
-- `yarn build`: to run a prod build
+- Dev
+> `yarn && yarn build:dev`: to install packages and run dev build with a watch
+
+- Prod
+> `yarn && yarn build`: to install packages and run a prod build
 
 3. Check the `dist` directory for your deployable files
 
