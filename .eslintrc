@@ -15,10 +15,7 @@
             4
         ],
         // something with LF and CRLF formating
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
+        "linebreak-style": 0,
         // allow jsx in files with .js
         "react/jsx-filename-extension": [
             1,
