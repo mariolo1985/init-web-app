@@ -1,6 +1,6 @@
 {
   "name": "init-web-app",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Pretty much the things I use to start a new front end project",
   "main": "index.js",
   "scripts": {
