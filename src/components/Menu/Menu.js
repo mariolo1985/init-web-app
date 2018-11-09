@@ -18,8 +18,10 @@ class Menu extends Component {
     // helpers
     handleMenuData = (response) => {
         console.log(response);
-
-        // set state isloaded = true and data = response.responseText
+        this.setState({
+            data: JSON.parse(response.response),
+            isLoaded: true
+        });
     }
 
     render() {
@@ -31,7 +33,7 @@ class Menu extends Component {
 
         return (
             <div className='menu-wrapper'>
-                <ul className='menu'>
+                <ul className='menu clear'>
                     <li>menu item</li>
                 </ul>
             </div>
