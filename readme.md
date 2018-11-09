@@ -2,7 +2,7 @@
 
 :v:
 
-This is where I start my Reactjs web apps. 
+This is where I start my ReactJS web apps. 
 
 Feel free to use it.
 
@@ -17,7 +17,7 @@ Feel free to use it.
 
 ## Pre-req
 
-- Node 8+
+- Node 8+/10+
 - Yarn
 
 ## Installation 
@@ -33,6 +33,8 @@ Feel free to use it.
 > `yarn && yarn build`: to install packages and run a prod build
 
 3. Check the `dist` directory for your deployable files
+
+> `yarn clean`
 
 ## Contributing
 
