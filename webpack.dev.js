@@ -16,6 +16,11 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: 'js/master.min.js'
     },
+    devServer: {
+        contentBase: './dist',
+        hot: true,
+        open: true
+    },
     module: {
         rules: [
             {
@@ -35,6 +40,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: true
         }),
