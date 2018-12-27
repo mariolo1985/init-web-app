@@ -1,12 +1,13 @@
 {
   "name": "init-web-app",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Pretty much the things I use to start a new front end project",
   "main": "index.js",
   "scripts": {
     "build": "yarn clean && cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "build:dev": "yarn clean && cross-env NODE_ENV=development webpack --config webpack.dev.js && webpack-dev-server --config webpack.dev.js",
     "clean": "node cleandist.js",
+    "fresh": "node cleanall.js",
     "lint": "eslint src"
   },
   "repository": {
